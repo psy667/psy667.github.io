@@ -1,60 +1,11 @@
-var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = [
-  '/schedule',
-  '/schedule/index.html',
-  '/schedule/style.css',
-  '/schedule/script.js',
-  'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js',
-  'https://unpkg.com/axios/dist/axios.min.js'
-];
+'use strict';
 
-self.addEventListener('install', function(event) {
-  // Perform install steps
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-  );
-});
+importScripts('sw-toolbox.js');
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
+toolbox.precache(["schedule/index.html","schedule/style.css","schedule/script.css"]);
 
-        // IMPORTANT: Clone the request. A request is a stream and
-        // can only be consumed once. Since we are consuming this
-        // once by cache and once by the browser for fetch, we need
-        // to clone the response.
-        var fetchRequest = event.request.clone();
+toolbox.router.get('/images/*', toolbox.cacheFirst);
 
-        return fetch(fetchRequest).then(
-          function(response) {
-            // Check if we received a valid response
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            // IMPORTANT: Clone the response. A response is a stream
-            // and because we want the browser to consume the response
-            // as well as the cache consuming the response, we need
-            // to clone it so we have two streams.
-            var responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(function(cache) {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
-          }
-        );
-      })
-    );
+toolbox.router.get('/*', toolbox.networkFirst, {
+  networkTimeoutSeconds: 5
 });
