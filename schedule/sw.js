@@ -1,11 +1,21 @@
-'use strict';
+self.addEventListener('install', function(e) {
+ e.waitUntil(
+   caches.open('video-store').then(function(cache) {
+     return cache.addAll([
+       '/schedule/',
+       '/schedule/index.html',
+       '/schedule/script.js',
+       '/schedule/style.css'
+     ]);
+   })
+ );
+});
 
-importScripts('sw-toolbox.js');
-
-toolbox.precache(["schedule/","schedule/index.html","schedule/style.css","schedule/script.css"]);
-
-toolbox.router.get('/*', toolbox.cacheFirst);
-
-toolbox.router.get('/*', toolbox.networkFirst, {
-  networkTimeoutSeconds: 5
+self.addEventListener('fetch', function(e) {
+  console.log(e.request.url);
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
+    })
+  );
 });
