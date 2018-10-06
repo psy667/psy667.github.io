@@ -7,10 +7,8 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src='https://unpkg.com/vue-router/dist/vue-router.js'></script>
   <title>Расписание занятий</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96166542-2"></script>
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
   <link rel="manifest" href="manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,26 +19,8 @@
   <link rel="icon" type="image/png" sizes="512x512" href="logo512.png">
   <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="logo512.png">
   <meta name="theme-color" content="#9080de"/>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-96166542-2');
-</script>
-<script>
-if ('serviceWorker' in navigator) {
- window.addEventListener('load', function() {
-   navigator.serviceWorker.register('/schedule/sw.js').then(
-     function(registration) {
-       // Registration was successful
-       console.log('ServiceWorker registration successful with scope: ', registration.scope); },
-     function(err) {
-       // registration failed :(
-       console.log('ServiceWorker registration failed: ', err);
-     });
- });
-}
-</script>
+
+
 </head>
 <body >
   <div id='app'>
@@ -83,6 +63,28 @@ if ('serviceWorker' in navigator) {
   </main>
   <a class='author' href='https://vk.com/psy667'>Made by Arseniy Oguzov</a>
 </div>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+   window.addEventListener('load', function() {
+     navigator.serviceWorker.register('/schedule/sw.js').then(
+       function(registration) {
+         // Registration was successful
+         console.log('ServiceWorker registration successful with scope: ', registration.scope); },
+       function(err) {
+         // registration failed :(
+         console.log('ServiceWorker registration failed: ', err);
+       });
+   });
+  }
+  </script>
   <script src='script.js'></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96166542-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-96166542-2');
+  </script>
 </body>
 </html>
