@@ -5,7 +5,9 @@ self.addEventListener('install', function(e) {
        '/schedule/',
        '/schedule/index.html',
        '/schedule/script.js',
-       '/schedule/style.css'
+       '/schedule/style.css',
+       '/schedule/in171.json',
+       '/schedule/is171.json'
      ]);
    })
  );
