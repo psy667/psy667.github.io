@@ -7,13 +7,13 @@
   <title>Local Storage Editor</title>
 </head>
 <body>
-  <input type='text' id='key' placeholder="Key"><input type='text' id='value' value='Value'><button onclick='save()'>Save</button>
+  <input type='text' id='key' placeholder="Key"><input type='text' id='value' placeholder='Value'><button onclick='save()'>Save</button>
   <script>
     function save(){
       let key= document.querySelector("#key").value;
       let value = document.querySelector("#value").value;
 
-      localStorage.setItem(key, params);
+      localStorage.setItem(key, value);
     }
   </script>
 </body>
