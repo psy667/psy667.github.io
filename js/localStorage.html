@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,3 +19,25 @@
   </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Local Storage Editor</title>
+</head>
+<body>
+  <input type='text' id='key' placeholder="Key"><input type='text' id='value' placeholder='Value'><button onclick='save()'>Save</button>
+  <script>
+    function save(){
+      let key= document.querySelector("#key").value;
+      let value = document.querySelector("#value").value;
+
+      localStorage.setItem(key, value);
+    }
+  </script>
+</body>
+</html>
+>>>>>>> cb86cef08be643e04dbc4d874827d5c3b1e70753
