@@ -33,8 +33,14 @@
   <header>
 
     <select class="group" v-model='group'>
-      <option value='in171'>ИН-171</option>
-      <option value='is171'>ИС-171</option>
+      <optgroup label='ВИВТ'>
+        <option value='in171'>ИН-171</option>
+        <option value='is171'>ИС-171</option>
+      </optgroup>
+
+      <optgroup label='ВГУ РГФ'>
+        <option value='https://api.myjson.com/bins/y0g1g'>спец. 2к, англ, 3гр</option>
+      </optgroup>
     </select>
 
     <select class="subGroup" v-model='subGroup'>
