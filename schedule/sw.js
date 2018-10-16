@@ -2,12 +2,10 @@ self.addEventListener('install', function(e) {
  e.waitUntil(
    caches.open('video-store').then(function(cache) {
      return cache.addAll([
-       '/schedule/',
-       '/schedule/index.html',
-       '/schedule/script.js',
-       '/schedule/style.css',
-       '/schedule/in171.json',
-       '/schedule/is171.json'
+       '/schedule/'
+       // '/schedule/index.html',
+       // '/schedule/script.js',
+       // '/schedule/style.css'
      ]);
    })
  );
