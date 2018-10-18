@@ -14,6 +14,7 @@ let app = new Vue({
   },
   methods: {
     getSchedule: function(){
+      app.schedule = {};
       axios.get(this.group+'.json').then(response => {
         this.schedule = response.data[this.parity][this.subGroup]
         this.timing = response.data['timing'];
