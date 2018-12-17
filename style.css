@@ -1,0 +1,84 @@
+@font-face {
+    font-family: Billy Ohio; /* Имя шрифта */
+    src: url(billyohio.ttf); /* Путь к файлу со шрифтом */
+  }
+
+body{
+  overflow: hidden;
+  background: #020202;
+  margin: 0;
+}
+.container{
+  margin-left: 0px;
+  width: calc( 100vw);
+  height: calc(90vh);
+  overflow: hidden;
+  position: relative;
+
+}
+
+.container div{
+  width: calc( 100vw);
+  height: calc( 100vw / 1.5);
+  margin: auto;
+  position: absolute;
+  bottom: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: filter 0.9s;
+  filter: blur(10px);
+}
+.label{
+  font-family: Billy Ohio;
+  font-size: 220px;
+  position: absolute;
+  z-index: 100;
+  top: 0px;
+  padding-left: 200px;
+  filter: blur(0px);
+}
+
+#output{
+  position: absolute;
+  bottom: 10px;
+  color: #fff;
+  z-index: 10;
+  font-size: 35px;
+}
+#el0{
+  background-color: #fff;
+  background-size: cover;
+  height: 100%;
+  /* opacity: 0.9; */
+  /* background-image: url('4.png'); */
+}
+#el1{
+  /* background-color: blue; */
+  background-image: url('1.png');
+
+}
+#el2{
+  /* background-color: red; */
+  background-image: url('2.png');
+}
+#el3{
+  /* background-color: yellow; */
+  background-image: url('3.png');
+}
+#el4{
+  /* background-color: yellow; */
+  background-size: cover;
+  height: 100%;
+  opacity: 0.3;
+  background-image: url('0.png');
+}
+
+@media (max-width: 400px) {
+  .label{
+  font-size: 120px;
+  width: 100%;
+  text-align: center;
+    top: 0px;
+    padding-left: 0px;
+  }
+}
