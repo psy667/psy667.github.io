@@ -73,7 +73,7 @@ body{
   background-image: url('0.png');
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .label{
   font-size: 120px;
   width: 100%;
